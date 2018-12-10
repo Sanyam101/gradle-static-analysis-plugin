@@ -161,7 +161,6 @@ class FindbugsConfigurator extends CodeQualityConfigurator<FindBugs, FindBugsExt
         task.xmlReportFile = xmlReportFile
         task.htmlReportFile = htmlReportFile
         task.classpath = findBugs.findbugsClasspath
-        task.onlyIf { xmlReportFile?.exists() }
         task
     }
 
