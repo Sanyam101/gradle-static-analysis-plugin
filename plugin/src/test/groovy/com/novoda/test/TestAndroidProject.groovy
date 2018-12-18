@@ -4,13 +4,16 @@ class TestAndroidProject extends TestProject<TestAndroidProject> {
     private static final Closure<String> TEMPLATE = { TestAndroidProject project ->
         """
 buildscript {
-    repositories { 
+    repositories {              
+        gradlePluginPortal()
         google()
         jcenter()
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:3.1.4'
+        classpath 'gradle.plugin.com.github.spotbugs:spotbugs-gradle-plugin:1.6.6'
     }
+    ${project.additionalBuildscriptConfig}
 }
 plugins {
     ${formatPlugins(project)}

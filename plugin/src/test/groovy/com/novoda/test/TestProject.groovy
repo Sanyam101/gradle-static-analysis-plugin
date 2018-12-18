@@ -21,6 +21,7 @@ ${project.additionalConfiguration}
     private final GradleRunner gradleRunner
     private final Closure<String> template
     String additionalConfiguration = ''
+    String additionalBuildscriptConfig = ''
     Map<String, List<File>> sourceSets = [main: []]
     List<String> plugins = []
     String penalty
@@ -87,6 +88,11 @@ ${project.additionalConfiguration}
 
     public T withAdditionalConfiguration(String additionalConfiguration) {
         this.additionalConfiguration = additionalConfiguration
+        return this
+    }
+
+    public T withAdditionalBuildscriptConfig(String additionalBuildscriptConfig) {
+        this.additionalBuildscriptConfig = additionalBuildscriptConfig
         return this
     }
 

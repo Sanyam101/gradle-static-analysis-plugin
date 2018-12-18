@@ -4,6 +4,9 @@ final class TestJavaProject extends TestProject<TestJavaProject> {
 
     private static final Closure<String> TEMPLATE = { TestProject project ->
         """
+buildscript {
+    ${project.additionalBuildscriptConfig}
+}
 plugins {
     ${formatPlugins(project)} 
     id 'com.novoda.static-analysis'
